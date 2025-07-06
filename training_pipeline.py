@@ -11,10 +11,7 @@ import json
 import datetime
 import pickle
 
-project = hopsworks.login(
-    api_key_value="wn1dqr4luNONtCPW.y2wmDAXEIgNdRiaqict0iNRgTh12zIoRZmL8olFjSWDmyypo5CwklmbCvVAu43Hm",
-    project="AQIndex_forecast"
-)
+project = hopsworks.login()
 
 fs = project.get_feature_store()
 

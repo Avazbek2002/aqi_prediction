@@ -5,10 +5,7 @@ import hopsworks
 import json
 import datetime
 
-project = hopsworks.login(
-    api_key_value="wn1dqr4luNONtCPW.y2wmDAXEIgNdRiaqict0iNRgTh12zIoRZmL8olFjSWDmyypo5CwklmbCvVAu43Hm",
-    project="AQIndex_forecast"
-)
+project = hopsworks.login()
 
 fs = project.get_feature_store()
 
@@ -24,7 +21,7 @@ def get_aqi_data(city, api_token):
         print("Failed to fetch data")
         return pd.DataFrame()
     
-AQICN_API_TOKEN = "e3c818ba649b427837fea729a38d987d67526f33"
+AQICN_API_TOKEN = "your_api_token_here"  # Replace with your actual API token
 CITY = "london"
 
 # Fetch the data
