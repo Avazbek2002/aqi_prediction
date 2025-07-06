@@ -19,6 +19,10 @@ jobs:
           auto-activate-base: true
           environment-file: environment.yml
           python-version: "3.11"
+      
+      -name: activate conda environment
+        shell: bash
+        run: conda activate aqi-prod-env
 
       - name: Run feature pipeline script
         shell: bash
