@@ -1,5 +1,5 @@
 pandas
-hopsworks[python]
+"hopsworks[python]"
 scikit-learn
 xgboost
 joblib
