@@ -16,13 +16,13 @@ jobs:
       - name: Set up Conda environment
         uses: conda-incubator/setup-miniconda@v3
         with:
-          auto-activate-base: false
+          auto-activate-base: true
           environment-file: environment.yml
           python-version: "3.11"
 
       - name: Run feature pipeline script
         shell: bash
-        run: conda run -n aqi-prod-env python feature_pipeline.py
+        run: python feature_pipeline.py
         env:
           HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
           HOPSWORKS_PROJECT_NAME: ${{ secrets.HOPSWORKS_PROJECT_NAME }}
