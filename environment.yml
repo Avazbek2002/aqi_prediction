@@ -1,0 +1,13 @@
+name: aqi-prod-env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pyarrow
+  - pip:
+    - hopsworks
+    - scikit-learn
+    - xgboost
+    - joblib
+    - pandas
