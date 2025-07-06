@@ -1,6 +1,0 @@
-pandas
-hopsworks
-scikit-learn
-xgboost
-joblib
-pyarrow
