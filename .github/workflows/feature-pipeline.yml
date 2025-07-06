@@ -22,7 +22,7 @@ jobs:
 
       - name: Run feature pipeline script
         shell: bash
-        run: python feature_pipeline.py
+        run: conda run -n aqi-prod-env python feature_pipeline.py
         env:
           HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
           HOPSWORKS_PROJECT_NAME: ${{ secrets.HOPSWORKS_PROJECT_NAME }}
