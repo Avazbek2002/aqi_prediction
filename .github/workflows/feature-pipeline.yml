@@ -13,20 +13,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - name: Set up Conda environment
+        uses: conda-incubator/setup-miniconda@v3
         with:
+          auto-activate-base: false
+          environment-file: environment.yml
           python-version: "3.11"
 
-      - name: Install dependencies
-        run: |
-          pip install "hopsworks[python]"
-          pip install -r requirements.txt
-        env:
-          HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
-          HOPSWORKS_PROJECT_NAME: ${{ secrets.HOPSWORKS_PROJECT_NAME }}
-
       - name: Run feature pipeline script
+        shell: bash
         run: python feature_pipeline.py
         env:
           HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
