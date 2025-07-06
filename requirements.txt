@@ -3,3 +3,4 @@ hopsworks
 scikit-learn
 xgboost
 joblib
+pyarrow
