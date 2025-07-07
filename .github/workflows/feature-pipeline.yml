@@ -1,21 +1,31 @@
-steps:
-  - name: Checkout repository
-    uses: actions/checkout@v4
+name: Daily Feature Pipeline
 
-  - name: Set up Conda environment
-    uses: conda-incubator/setup-miniconda@v3
-    with:
-      activate-environment: aqi-prod-env
-      environment-file: environment.yml
-      python-version: "3.11"
+on:
+  schedule:
+    - cron: "0 12 * * *"
+  workflow_dispatch:
 
-  - name: Install pip dependencies
-    shell: bash
-    run: pip install -r requirements.txt
+jobs:
+  run-feature-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-  - name: Run feature pipeline script
-    shell: bash
-    run: python feature_pipeline.py
-    env:
-      HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
-      HOPSWORKS_PROJECT_NAME: ${{ secrets.HOPSWORKS_PROJECT_NAME }}
+      - name: Set up Conda environment
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          activate-environment: aqi-prod-env
+          environment-file: environment.yml
+          python-version: "3.11"
+
+      - name: Install pip dependencies
+        shell: bash
+        run: pip install -r requirements.txt
+
+      - name: Run feature pipeline script
+        shell: bash
+        run: python feature_pipeline.py
+        env:
+          HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
+          HOPSWORKS_PROJECT_NAME: ${{ secrets.HOPSWORKS_PROJECT_NAME }}
