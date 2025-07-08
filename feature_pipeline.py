@@ -7,7 +7,8 @@ import datetime
 
 project = hopsworks.login(
     project=os.environ["HOPSWORKS_PROJECT_NAME"],
-    api_key_value=os.environ["HOPSWORKS_API_KEY"]
+    api_key_value=os.environ["HOPSWORKS_API_KEY"],
+    host=os.environ["HOPSWORKS_HOST"]  # Ensure you have the HOPSWORKS_HOST environment variable set
 )
 
 fs = project.get_feature_store()

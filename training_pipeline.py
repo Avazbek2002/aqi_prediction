@@ -13,7 +13,8 @@ import pickle
 
 project = hopsworks.login(
     api_key_value=os.environ["HOPSWORKS_API_KEY"],
-    project=os.environ["HOPSWORKS_PROJECT_NAME"]
+    project=os.environ["HOPSWORKS_PROJECT_NAME"],
+    host=os.environ["HOPSWORKS_HOST"]  # Ensure you have the HOPSWORKS_HOST environment variable set
 )
 
 fs = project.get_feature_store()
