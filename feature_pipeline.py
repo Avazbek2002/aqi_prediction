@@ -5,9 +5,12 @@ import hopsworks
 import json
 import datetime
 
+print(os.environ["HOPSWORKS_PROJECT_NAME"])
+print(os.environ["HOPSWORKS_API_KEY"])
+
 project = hopsworks.login(
-    api_key_value=os.environ["HOPSWORKS_API_KEY"],
-    project=os.environ["HOPSWORKS_PROJECT_NAME"]
+    project=os.environ["HOPSWORKS_PROJECT_NAME"],
+    api_key_value=os.environ["HOPSWORKS_API_KEY"]
 )
 
 fs = project.get_feature_store()
