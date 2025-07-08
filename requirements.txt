@@ -4,3 +4,4 @@ xgboost
 joblib
 pandas
 streamlit
+confluent-kafka
