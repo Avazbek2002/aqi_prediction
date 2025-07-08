@@ -4,12 +4,16 @@ from hsml.model_schema import ModelSchema
 import numpy as np
 import xgboost as xgb
 import os
+import requests
+import pandas as pd
 import hopsworks
+import json
+import datetime
 import pickle
 
 project = hopsworks.login(
-    project=os.environ["HOPSWORKS_PROJECT_NAME"],
-    api_key_value=os.environ["HOPSWORKS_API_KEY"]
+    api_key_value=os.environ["HOPSWORKS_API_KEY"],
+    project=os.environ["HOPSWORKS_PROJECT_NAME"]
 )
 
 fs = project.get_feature_store()
