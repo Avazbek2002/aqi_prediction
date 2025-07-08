@@ -31,7 +31,7 @@ def get_aqi_data(city, api_token):
         print("Failed to fetch data")
         return pd.DataFrame()
     
-AQICN_API_TOKEN = "your_api_token_here"  # Replace with your actual API token
+AQICN_API_TOKEN = "e3c818ba649b427837fea729a38d987d67526f33"  # Replace with your actual API token
 CITY = "london"
 
 # Fetch the data
