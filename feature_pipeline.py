@@ -4,11 +4,17 @@ import pandas as pd
 import hopsworks
 import json
 import datetime
+import sys
+
+
+host = sys.argv[1]
+project_name = sys.argv[2]
+api_key = sys.argv[3]
 
 project = hopsworks.login(
-    project=os.environ["HOPSWORKS_PROJECT_NAME"],
-    api_key_value=os.environ["HOPSWORKS_API_KEY"],
-    host=os.environ["HOPSWORKS_HOST"]  # Ensure you have the HOPSWORKS_HOST environment variable set
+    host=host,
+    project=project_name,
+    api_key_value=api_key
 )
 
 fs = project.get_feature_store()
