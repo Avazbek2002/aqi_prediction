@@ -1,0 +1,32 @@
+name: Daily Feature Pipeline
+
+on:
+  schedule:
+    - cron: "0 0 1 * *"
+  workflow_dispatch:
+
+jobs:
+  run-feature-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Conda environment
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          activate-environment: aqi-prod-env
+          environment-file: environment.yml
+          python-version: "3.11"
+
+      - name: Install pip dependencies
+        shell: bash
+        run: pip install -r requirements.txt
+
+      - name: Run feature pipeline script
+        shell: bash
+        run: >
+          python training_pipeline.py
+          "${{ secrets.HOPSWORKS_HOST }}"
+          "${{ secrets.HOPSWORKS_PROJECT_NAME }}"
+          "${{ secrets.HOPSWORKS_API_KEY }}"
