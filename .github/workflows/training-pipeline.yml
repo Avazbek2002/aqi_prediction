@@ -1,4 +1,4 @@
-name: Daily Feature Pipeline
+name: Monthly Feature Pipeline
 
 on:
   schedule:
