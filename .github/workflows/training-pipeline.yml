@@ -1,4 +1,4 @@
-name: Monthly Feature Pipeline
+name: Monthly Training Pipeline
 
 on:
   schedule:

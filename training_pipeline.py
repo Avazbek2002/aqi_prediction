@@ -3,12 +3,7 @@ from hsml.schema import Schema
 from hsml.model_schema import ModelSchema
 import numpy as np
 import xgboost as xgb
-import os
-import requests
-import pandas as pd
 import hopsworks
-import json
-import datetime
 import pickle
 import sys
 
